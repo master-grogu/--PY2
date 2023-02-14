@@ -21,15 +21,15 @@ class LabWork:
         self._done = done
 
     @property
-    def name(self) -> str:
+    def name(self) -> str:  # атрибут name задается только при создания и не должно меняться
         return self._name
 
     @property
-    def author(self) -> str:
+    def author(self) -> str:  # атрибут author задается только при создания и не должно меняться
         return self._author
 
     @property
-    def done(self) -> str:
+    def done(self) -> str:  # атрибут done не задается, а имеет начальное значение, и должен изменять с помощью метода
         return self._done
 
     @property
@@ -38,6 +38,7 @@ class LabWork:
 
     @quantity_of_work.setter
     def quantity_of_work(self, new_quantity_of_work: float) -> None:
+    # атрибут quantity_of_work должен задаваться в определенном формате
         if not isinstance(new_quantity_of_work, float):
             raise TypeError("Сложность работы должна быть типа float")
         if new_quantity_of_work <= 0:
@@ -89,6 +90,7 @@ class Task(LabWork):
 
     @number_of_task.setter
     def number_of_task(self, new_number_of_task: int) -> None:
+    # атрибут number_of_task должен задаваться в определенном формате
         if not isinstance(new_number_of_task, int):
             raise TypeError("Номер задания должен быть типа int")
         if new_number_of_task <= 0:
@@ -138,7 +140,7 @@ class File(Task):
         self._format = format_file
 
     @property
-    def format_file(self) -> str:
+    def format_file(self) -> str:  # атрибут format_file задается только при создания и не должен меняться
         return self._format
 
     def __str__(self) -> str:
